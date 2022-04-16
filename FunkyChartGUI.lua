@@ -8,6 +8,7 @@
                            /____/
     v1.11
     Made with ♥ by accountrev          
+    Modified by 0tv0
 
     Thanks for downloading and using my script, if you're here to just use it once or plan to use it many times.
     I have put many hours into this as well as my YouTube channel with showcases and such. I don't really care about the views that much,
@@ -391,13 +392,14 @@ function Chart(preventErrorLag)
                     currentpos.CFrame = stagepos
                 end
                 
-                funky.SongPlayer:StartSong("FNF_Bopeebo", data.options.side, "Hard", {game.Players.LocalPlayer})
+		-- god PLEASE FUCKING BE THE CORRECT CAPITALIZATION
+                funky.SongPlayer:StartSong("VSShaggy_AstralCalamity", data.options.side, "Insane", {game.Players.LocalPlayer})
 
                 print(data.options.side)
 
                 funky.SongPlayer.CurrentSongData = data.chartData.chartNotes
-                funky.Songs.FNF_Bopeebo.Title = data.chartData.chartName
-                funky.Songs.FNF_Bopeebo.TitleFormat = data.chartData.chartNameColor
+                funky.Songs.VSShaggy_AstralCalamity.Title = data.chartData.chartName
+                funky.Songs.VSShaggy_AstralCalamity.TitleFormat = data.chartData.chartNameColor
                 funky.SongPlayer.TopbarAuthor = "By: " .. data.chartData.chartAuthor .. "\nConverted by: " .. data.chartData.chartConverter
                 funky.SongPlayer.TopbarDifficulty = data.chartData.chartDifficulty
                 funky.SongPlayer.CountDown = true
@@ -433,7 +435,7 @@ end
 function loadGUI()
     local Library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/accountrev/gui-libraries/main/kavo.lua')))()
 
-    local Window = Library.CreateLib("FunkyChart - v1.11", "GrapeTheme")
+    local Window = Library.CreateLib("FunkyChart 7K - v1.11", "GrapeTheme")
 
     local Main = Window:NewTab("Main")
     local CurrentyLoadedSec = Main:NewSection("Currently Loaded: None - None")
