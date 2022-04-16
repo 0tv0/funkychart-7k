@@ -1,6 +1,11 @@
+# This is not the original FunkyChart!!
+This is a fork of it which aims to work with 7key songs instead of 4key!!
+I did **NOT** write the majority of this code, only adapted it to work with a different amount of keys
+accountrev is the one behind the original FunkyChart (and they did an awesome job)
+
 # FunkyChart for Lyte Interactive's Funky Friday
 A fork of wally-rblx's [funky-friday-autoplayer](https://github.com/wally-rblx/funky-friday-autoplay).<br>
-Play your favorite 4-key osu!mania charts in Funky Friday with this epic script.<br><br>
+Play your favorite 7-key osu!mania charts in Funky Friday with this epic script.<br><br>
 Supported for Synapse X and Krnl.<br>
 ### **[Trailer](https://www.youtube.com/watch?v=mzDmDsj2Wj4)**<br>
 ### **[DOWNLOAD THE LATEST RELEASE](https://github.com/accountrev/funkychart/releases/latest)**<br><br>
@@ -14,7 +19,7 @@ Krnl - **[LINK](https://krnl.ca/)**<br>
 
 ## Overview and Purpose
 This script allows you to fully convert an osu!mania chart into a Lua script that is compatible with Funky Friday's engine.<br>
-The osu!mania chart **must be 4-key**. Anything higher or lower will not work.<br><br>
+The osu!mania chart **must be 7-key**. Anything higher or lower will not work.<br><br>
 When I used to be into VSRGs very religiously, this was my go-to game to play on ROBLOX. There was a point where I got tired of the same songs, so I noted this project down as a concept. A few months later, I was tinkering with wally-rblx's autoplayer. I suddenly realized that [you can edit the notes when they load](https://youtu.be/FscazwnUDjk). So I set out to make this abombination that you see in front of you.<br><br>
 You can use this script to play songs for fun or practice, as Funky Friday's engine is very lenient when it comes to notes.<br><br>
 Just remember, this is all **client-sided and singleplayer**, meaning no one will be able to hear or see you play songs in-game.<br><br>
@@ -24,8 +29,8 @@ This repository contains a few files, most importantly **the converter** and **t
 The converter made written in Python and converts .osu files into readable Lua.<br>
 The GUI was written in Lua for executors, and you can load and configure the songs that you want.<br><br>
 ### If you are experienced with Python, you can download the source code (currently open source)<br>
-### If you are just looking for the download, **[CLICK HERE FOR THE LATEST RELEASE!!!](https://github.com/accountrev/funkychart/releases/latest)**
+### If you are just looking for the download, **[CLICK HERE FOR THE LATEST RELEASE!!!](https://github.com/0tv0/funkychart-7k/releases/latest)**
 
-## Instructions
+## Instructions (for the original FunkyChart)
 ### Check out **[this video](https://www.youtube.com/watch?v=juM02bEOqPo)** for the full instructions. If any questions, ask in the Issues tab!<br><br>
 
