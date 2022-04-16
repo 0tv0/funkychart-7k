@@ -465,6 +465,8 @@ def convertChartToFF(filePath):
     # will save me from a headache for sure
         
     def zoneToKey(number):
+        # make sure, like REALLY sure, that it becomes a number if not already one
+        number = int(number);
         if inRange(number, 0, 72):
             return "0";
         elif inRange(number, 63, 145):
