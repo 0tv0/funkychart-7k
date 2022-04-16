@@ -164,7 +164,7 @@ def cls():
 #       exiting - if exiting is set to true, it will exit the program. if false, the user can enter something again.
 def errorHandler(error, additionalInfo = "", exiting=True):
 
-    # I swear im not yanderedev
+    # bruh...
     if error == 0:
         print(colorDict["R"] + "\nThat is not a valid option.\n" + colorDict["W"] + "ERROR 00")
     if error == 1:
@@ -287,12 +287,12 @@ def inputSys(mode):
 
 # Update Notifier - notifies if a new verison is available on GitHub
 def checkForUpdate():
-    requestedVersion = requests.get("https://api.github.com/repos/accountrev/funkychart/releases/latest").json()["tag_name"]
+    requestedVersion = requests.get("https://api.github.com/repos/0tv0/funkychart-7k/releases/latest").json()["tag_name"]
 
     if requestedVersion > version:
         cls()
-        print(colorDict["Y"] + "There is a new version of FunkyChart available on GitHub! Please update this to continue using the converter.\nYou are using " + version + ", while the latest version is " + requestedVersion + ".\n\n" + colorDict["W"] + "OPENING GITHUB PAGE...")
-        webbrowser.open("https://github.com/accountrev/funkychart/releases/latest")
+        print(colorDict["Y"] + "There is a new version of FunkyChart 7K available on GitHub! Please update this to continue using the converter.\nYou are using " + version + ", while the latest version is " + requestedVersion + ".\n\n" + colorDict["W"] + "OPENING GITHUB PAGE...")
+        webbrowser.open("https://github.com/0tv0/funkychart-7k/releases/latest")
         print(colorDict["Y"] + "\n\nYou can still use this converter if you'd like. Would you like to keep using the converter?\n\n")
 
         ignoreMSG = inputSys(1)
@@ -406,7 +406,9 @@ def chartCreationAndValidation():
 
         if dataObject[1] == "CircleSize":
             difficultyChecks["CircleSize"] = True
-            if dataObject[2] == "4":
+            if dataObject[2] == "7":
+                # dont know what this is, so i gotta pray that changing it from 4 to 7 is not a stupid decision
+                # but im assuming by the comment below that it is indicating the key count and not some other value
                 # print("4k mode")
                 pass
             else:
@@ -421,13 +423,63 @@ def chartCreationAndValidation():
             errorHandler(9, str(difficultyChecks))
     #endregion
 
-
 # Turns the data that was collected into an actual readable Lua file for FunkyChart.
 def convertChartToFF(filePath):
 
     # some of code was written in early 2021, so it needs optimizing
 
-    noteLocationDictionary = {"64" : "0", "192" : "1", "320" : "2", "448" : "3"}
+    # almost forgot about this... that wouldve been BAD
+    # ok so im not exactly sure what going on here, uhhhhhh
+    # 64 -> 0
+    # (64 + 128) -> 1
+    # ((64 + 128) + 128) -> 2 etc
+    # uhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    # ok im not sure what to do with that info
+    
+    # https://osu.ppy.sh/community/forums/topics/314918?n=1
+    # figured it out here (i think)
+    
+    # 4k zones: 0-127 | 128 - 255 | 256 - 383 | 384 - 511
+    #           mid64   mid 192     mid 320     mid 448
+    # OHHHHHHHH THAT MAKES SENSE NOW
+    
+    # why am i putting all my thoughts in the comments here
+    # blbjsdisjf my brain not want work rn
+    
+    # ok now we do the thing but for 7k this time
+    # zone size = 512 / 7 = (approximately) 73
+    # my math could be a bit off here, but it should work in the end
+    # [1/7] 0 - 72
+    # [2/7] 73 - 145
+    # [3/7] 146 - 218
+    # [4/7] 219 - 291
+    # [5/7] 292 - 364
+    # [6/7] 365 - 437
+    # [7/7] 438 - 511 <- that makes sense, i think i did math correctly for once!!!
+    # and i guess we can use any value within these ranges for the corresponding key(?)
+
+    # excuse my horrible python skills, i dont use python really
+    # shit i dont think we can use a switch case here :scream:
+    def inRange(a, min, max):
+        return min <= a <= max
+    # will save me from a headache for sure
+        
+    def zoneToKey(number):
+        if inRange(number, 0, 72):
+            return "0";
+        elif inRange(number, 63, 145):
+            return "1";
+        elif inRange(number, 146, 218):
+            return "2";
+        elif inRange(number, 219, 291):
+            return "3";
+        elif inRange(number, 292, 364):
+            return "4";
+        elif inRange(number, 365, 437):
+            return "5";
+        elif inRange(number, 438, 511):
+            return "6";
+    
     counter = 1
 
     cls()
@@ -469,7 +521,7 @@ def convertChartToFF(filePath):
             if len(hitObject) == 9:
 
                 side = "data.options.side"
-                position = noteLocationDictionary[hitObject[0]]
+                position = zoneToKey(hitObject[0]);
                 length = "0"
                 time1 = str(int(hitObject[2]) / 1000)
                 str_counter = str(counter)
@@ -488,7 +540,7 @@ def convertChartToFF(filePath):
             elif len(hitObject) == 10:
 
                 side = "data.options.side"
-                position = noteLocationDictionary[hitObject[0]]
+                position = zoneToKey(hitObject[0]);
                 length = str((int(hitObject[5]) - int(hitObject[2])) / 1000)
                 time1 = str(int(hitObject[2]) / 1000)
                 str_counter = str(counter)
