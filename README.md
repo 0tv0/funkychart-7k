@@ -1,7 +1,7 @@
 # This is not the original FunkyChart!!
-This is a fork of it which aims to work with 7key songs instead of 4key!!
-I did **NOT** write the majority of this code, only adapted it to work with a different amount of keys
-accountrev is the one behind the original FunkyChart (and they did an awesome job)
+This is a fork of it which aims to work with 7key songs instead of 4key!!<br>
+I did **NOT** write the majority of this code, only adapted it to work with a different amount of keys<br>
+accountrev is the one behind the original FunkyChart (and they did an awesome job)<br>
 
 # FunkyChart for Lyte Interactive's Funky Friday
 A fork of wally-rblx's [funky-friday-autoplayer](https://github.com/wally-rblx/funky-friday-autoplay).<br>
