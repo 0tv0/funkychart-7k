@@ -1,3 +1,7 @@
+# Warning: Extremely unreliable
+Trying to play the songs almost always causes a wierd bug where you're playing using a combination of 4key and 7key settings.<br>
+The cause for this is unknown, if anyone knows a fix or even just an explanation of why its happening, please tell me! I will be grateful for your support.<br>
+
 # This is not the original FunkyChart!!
 This is a fork of it which aims to work with 7key songs instead of 4key!!<br>
 I did **NOT** write the majority of this code, only adapted it to work with a different amount of keys<br>
