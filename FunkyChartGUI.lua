@@ -393,13 +393,13 @@ function Chart(preventErrorLag)
                 end
                 
 		-- god PLEASE FUCKING BE THE CORRECT CAPITALIZATION
-                funky.SongPlayer:StartSong("VSShaggy_AstralCalamity", data.options.side, "Insane", {game.Players.LocalPlayer})
+                funky.SongPlayer:StartSong("VSShaggy_Astralcalamity", data.options.side, "Insane", {game.Players.LocalPlayer})
 
                 print(data.options.side)
 
                 funky.SongPlayer.CurrentSongData = data.chartData.chartNotes
-                funky.Songs.VSShaggy_AstralCalamity.Title = data.chartData.chartName
-                funky.Songs.VSShaggy_AstralCalamity.TitleFormat = data.chartData.chartNameColor
+                funky.Songs.VSShaggy_Astralcalamity.Title = data.chartData.chartName
+                funky.Songs.VSShaggy_Astralcalamity.TitleFormat = data.chartData.chartNameColor
                 funky.SongPlayer.TopbarAuthor = "By: " .. data.chartData.chartAuthor .. "\nConverted by: " .. data.chartData.chartConverter
                 funky.SongPlayer.TopbarDifficulty = data.chartData.chartDifficulty
                 funky.SongPlayer.CountDown = true
@@ -408,6 +408,8 @@ function Chart(preventErrorLag)
                 funky.SongPlayer.CurrentlyPlaying = game:GetService("SoundService").ClientMusic
                 funky.SongPlayer:Countdown()
                 funky.SongPlayer.CurrentlyPlaying.Playing = true
+		-- probably not needed
+		funky.SongPlayer.KeyCount = 7;
 
                 game.Players.LocalPlayer.Character.Torso.Anchored = true
 
